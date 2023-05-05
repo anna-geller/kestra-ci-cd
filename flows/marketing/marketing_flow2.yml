@@ -1,0 +1,10 @@
+id: flow2
+namespace: prod.marketing
+tasks:
+- id: iac
+  type: io.kestra.core.tasks.log.Log
+  message: Hello from Terraform!
+- id: newtask
+  type: io.kestra.core.tasks.scripts.Bash
+  commands:
+    - echo "hello from a new tf task"
