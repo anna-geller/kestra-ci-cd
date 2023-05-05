@@ -3,7 +3,7 @@ namespace: prod
 tasks:
 - id: iac
   type: io.kestra.core.tasks.log.Log
-  message: Hello from Terraform!
+  message: Hello from Terraform Cloud!
 - id: newtask
   type: io.kestra.core.tasks.scripts.Bash
   commands:
