@@ -27,3 +27,9 @@ resource "kestra_flow" "prod_marketing" {
   namespace = yamldecode(templatefile(each.value, {}))["namespace"]
   content = templatefile(each.value, {})
 }
+
+resource "kestra_namespace_secret" "slack_webhook" {
+  namespace = "prod"
+  secret_key = "SLACK_WEBHOOK"
+  secret_value = var.slack_webhook
+}
