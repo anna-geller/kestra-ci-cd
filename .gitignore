@@ -33,10 +33,6 @@ override.tf.json
 .terraformrc
 terraform.rc
 
-# PyCharm
-.idea/inspectionProfiles/profiles_settings.xml
-.idea/inspectionProfiles/Project_Default.xml
-.idea/kestra.iml
-.idea/misc.xml
-.idea/modules.xml
-.idea/vcs.xml
+# IDE
+.idea/
+.vscode/
