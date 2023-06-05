@@ -13,7 +13,7 @@ jobs:
         uses: kestra-io/deploy-action@develop
         with:
           namespace: prod
-          directory: ./flows
+          directory: ./flows/prod
           resource: flow
           server: ${{secrets.KESTRA_HOST}}
           user: ${{secrets.KESTRA_USER}}
@@ -23,7 +23,7 @@ jobs:
         uses: kestra-io/deploy-action@develop
         with:
           namespace: prod
-          directory: ./flows/marketing
+          directory: ./flows/prod.marketing
           resource: flow
           server: ${{secrets.KESTRA_HOST}}
           user: ${{secrets.KESTRA_USER}}
