@@ -36,7 +36,7 @@ tasks:
 triggers:
   - id: github
     type: io.kestra.core.models.triggers.types.Webhook
-    key: "{{secret(WEBHOOK_KEY)}}"
+    key: "yourSecretKey"
 ```
 
 ![meme](meme.jpg)
