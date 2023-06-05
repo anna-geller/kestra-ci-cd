@@ -2,8 +2,8 @@ name: Kestra CI/CD
 on: 
   workflow_dispatch:
 defaults:
-  run:
-    working-directory: ./flows/
+#  run:
+#    working-directory: ./flows/
 jobs:
   kestra:
     runs-on: ubuntu-latest
@@ -12,7 +12,7 @@ jobs:
         uses: kestra-io/deploy-action@develop
         with:
           namespace: prod
-          directory: ./
+          directory: ./flows/
           server: ${{secrets.KESTRA_HOST}}
           user: ${{secrets.KESTRA_USER}}
           password: ${{secrets.KESTRA_PASSWORD}}
