@@ -12,7 +12,6 @@ jobs:
       - name: validate-prod
         uses: kestra-io/validate-action@develop
         with:
-          namespace: prod
           directory: ./flows/prod
           resource: flow
           server: ${{secrets.KESTRA_HOST}}
@@ -35,7 +34,6 @@ jobs:
       - name: validate-prod-marketing
         uses: kestra-io/validate-action@develop
         with:
-          namespace: prod.marketing
           directory: ./flows/prod.marketing
           resource: flow
           server: ${{secrets.KESTRA_HOST}}
