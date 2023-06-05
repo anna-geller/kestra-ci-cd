@@ -16,7 +16,7 @@ Alternatively, you can use a Kestra flow that will deploy production flows based
 id: ci-cd
 namespace: prod
 tasks:
-  - id: GitHub-CI-CD
+  - id: deploy
     type: io.kestra.core.tasks.flows.Worker
     tasks:
       - id: cloneRepository
