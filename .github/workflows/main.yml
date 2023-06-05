@@ -1,7 +1,7 @@
 name: Kestra CI/CD
 on: 
   workflow_dispatch:
-defaults:
+# defaults:
 #  run:
 #    working-directory: ./flows/
 jobs:
