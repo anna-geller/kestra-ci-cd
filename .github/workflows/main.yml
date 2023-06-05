@@ -1,23 +1,18 @@
 name: Kestra CI/CD
 on: 
   workflow_dispatch:
+defaults:
+  run:
+    working-directory: ./flows/
 jobs:
   kestra:
     runs-on: ubuntu-latest
     steps:
-      - name: validate
-        uses: kestra-io/validate-action@develop
-        with:
-          resource: flow
-          directory: ./kestra/flows
-          server: ${{secrets.KESTRA_HOST}}
-          user: ${{secrets.KESTRA_USER}}
-          password: ${{secrets.KESTRA_PASSWORD}}
       - name: deploy
         uses: kestra-io/deploy-action@develop
         with:
           namespace: prod
-          directory: ./kestra/flows
+          directory: ./
           server: ${{secrets.KESTRA_HOST}}
           user: ${{secrets.KESTRA_USER}}
           password: ${{secrets.KESTRA_PASSWORD}}
