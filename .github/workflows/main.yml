@@ -13,6 +13,8 @@ jobs:
         with:
           namespace: prod
           directory: ./flows/
+          resource: flow
           server: ${{secrets.KESTRA_HOST}}
           user: ${{secrets.KESTRA_USER}}
           password: ${{secrets.KESTRA_PASSWORD}}
+          delete: false
