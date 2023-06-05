@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: validate
-        uses: actions/kestra-validate-action@develop
+        uses: actions/kestra-validate-action@master
         with:
           resource: flow
           directory: ./flows
@@ -14,7 +14,7 @@ jobs:
           user: ${{secrets.KESTRA_USER}}
           password: ${{secrets.KESTRA_PASSWORD}}
       - name: deploy
-        uses: actions/kestra-deploy-action@develop
+        uses: actions/kestra-deploy-action@master
         with:
           namespace: prod
           directory: ./flows
