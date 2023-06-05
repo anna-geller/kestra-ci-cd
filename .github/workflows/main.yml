@@ -9,7 +9,7 @@ jobs:
         uses: kestra-io/validate-action@develop
         with:
           resource: flow
-          directory: ./flows
+          directory: ./kestra/flows
           server: ${{secrets.KESTRA_HOST}}
           user: ${{secrets.KESTRA_USER}}
           password: ${{secrets.KESTRA_PASSWORD}}
@@ -17,7 +17,7 @@ jobs:
         uses: kestra-io/deploy-action@develop
         with:
           namespace: prod
-          directory: ./flows
+          directory: ./kestra/flows
           server: ${{secrets.KESTRA_HOST}}
           user: ${{secrets.KESTRA_USER}}
           password: ${{secrets.KESTRA_PASSWORD}}
