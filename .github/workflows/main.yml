@@ -1,19 +1,29 @@
 name: Kestra CI/CD
 on: 
   workflow_dispatch:
-# defaults:
-#  run:
-#    working-directory: ./flows/
+  push:
+    branches:
+      - main
 jobs:
   kestra:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: deploy
+      - name: deploy-prod
         uses: kestra-io/deploy-action@develop
         with:
           namespace: prod
           directory: ./flows
+          resource: flow
+          server: ${{secrets.KESTRA_HOST}}
+          user: ${{secrets.KESTRA_USER}}
+          password: ${{secrets.KESTRA_PASSWORD}}
+          delete: false
+      - name: deploy-prod-marketing
+        uses: kestra-io/deploy-action@develop
+        with:
+          namespace: prod
+          directory: ./flows/marketing
           resource: flow
           server: ${{secrets.KESTRA_HOST}}
           user: ${{secrets.KESTRA_USER}}
