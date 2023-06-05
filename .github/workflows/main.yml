@@ -8,7 +8,7 @@ jobs:
   kestra:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@latest
+      - uses: actions/checkout@v3
       - name: deploy
         uses: kestra-io/deploy-action@develop
         with:
