@@ -1,5 +1,5 @@
 id: flow2
-namespace: prod
+namespace: prod.marketing
 tasks:
 - id: iac
   type: io.kestra.core.tasks.log.Log
