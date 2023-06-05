@@ -1,0 +1,5 @@
+- type: io.kestra.plugin.gcp.bigquery.LoadFromGcs
+  values:
+    location: EU
+    projectId: '{{ secret("GCP_PROJECT_ID") }}'
+    serviceAccount: '{{ secret("GCP_SERVICE_ACCOUNT") }}'
