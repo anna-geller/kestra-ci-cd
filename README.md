@@ -40,3 +40,5 @@ triggers:
 ```
 
 ![meme](meme.jpg)
+
+For Kestra Enterprise, make sure to change `/app/kestra` to `/app/kestra-ee`.
