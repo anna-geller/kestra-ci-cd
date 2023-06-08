@@ -118,7 +118,7 @@ triggers:
     key: "yourSecretKey"
 ```
 
-![meme](meme.jpg)
+![meme](docs/meme.jpg)
 
 
 ## CI/CD from a flow with Kestra Enterprise
