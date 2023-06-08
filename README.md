@@ -9,7 +9,56 @@ Make sure that the directory structure of your flows corresponds to the structur
 | ./flows/prod           | prod           |
 | ./flows/prod.marketing | prod.marketing |
 
-## CI/CD from a flow
+
+## Full CI/CD example using a GitHub Actions workflow
+
+```yaml
+name: Kestra CI/CD
+on: 
+  push:
+    branches:
+      - main
+
+jobs:
+  prod:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: validate-all flows
+        uses: kestra-io/validate-action@develop
+        with:
+          directory: ./flows/prod
+          resource: flow
+          server: ${{secrets.KESTRA_HOST}}
+          user: ${{secrets.KESTRA_USER}}
+          password: ${{secrets.KESTRA_PASSWORD}}
+      
+      - name: deploy-prod
+        uses: kestra-io/deploy-action@develop
+        with:
+          namespace: prod
+          directory: ./flows/prod
+          resource: flow
+          server: ${{secrets.KESTRA_HOST}}
+          user: ${{secrets.KESTRA_USER}}
+          password: ${{secrets.KESTRA_PASSWORD}}
+          delete: false
+      
+      - name: deploy-prod-marketing
+        uses: kestra-io/deploy-action@develop
+        with:
+          namespace: prod.marketing
+          directory: ./flows/prod.marketing
+          resource: flow
+          server: ${{secrets.KESTRA_HOST}}
+          user: ${{secrets.KESTRA_USER}}
+          password: ${{secrets.KESTRA_PASSWORD}}
+          delete: false
+```
+
+
+# CI/CD from a flow
 Alternatively, you can use a Kestra flow that will deploy production flows based on the current state of the default branch. You can either run this flow on schedule or in response to a GitHub webhook event.
 
 ```yaml
