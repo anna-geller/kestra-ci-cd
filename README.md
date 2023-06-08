@@ -1,4 +1,8 @@
-# CI/CD with GitHub Actions for Kestra flows
+# CI/CD for Kestra flows
+
+This repository explains several ways of implementing a CI/CD pipeline for Kestra workflows.
+
+## CI/CD with GitHub Actions
 
 This repository provides an end-to-end example of how you can use the [deploy](https://github.com/marketplace/actions/kestra-deploy-action) and [validate](https://github.com/marketplace/actions/kestra-validate-action) GitHub Actions. 
 
@@ -10,7 +14,7 @@ Make sure that the directory structure of your flows corresponds to the structur
 | ./flows/prod.marketing | prod.marketing |
 
 
-## Full CI/CD example using a GitHub Actions workflow
+Here is a full CI/CD example using a GitHub Actions workflow:
 
 ```yaml
 name: Kestra CI/CD
@@ -58,7 +62,8 @@ jobs:
 ```
 
 
-# CI/CD from a flow
+## CI/CD from a flow using a GitHub webhook trigger
+
 Alternatively, you can use a Kestra flow that will deploy production flows based on the current state of the default branch. You can either run this flow on schedule or in response to a GitHub webhook event.
 
 ```yaml
@@ -85,7 +90,7 @@ tasks:
           - /app/kestra flow namespace update prod.marketing flows/prod.marketing/ --no-delete
 ```
 
-## CI/CD from a flow with a self-hosted remote server
+### CI/CD from a flow with a self-hosted remote server
 
 ```yaml
 id: ci-cd
@@ -121,7 +126,7 @@ triggers:
 ![meme](docs/meme.jpg)
 
 
-## CI/CD from a flow with Kestra Enterprise
+### CI/CD from a flow with Kestra Enterprise
 
 For Kestra Enterprise, make sure to change `/app/kestra` to `/app/kestra-ee`.
 
@@ -155,7 +160,7 @@ triggers:
     key: "yourSecretKey"
 ```
 
-# CI/CD using Terraform
+## CI/CD using Terraform
 
 While Terraform might be more challenging to understand at first, it provides the highest degree of flexibility. Using Kestra and Terraform together, your flows can be deployed along with other infrastructure resources in your stack, making it easier to adopt Infrastructure as Code.
 
