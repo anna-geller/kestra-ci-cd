@@ -154,3 +154,17 @@ triggers:
     type: io.kestra.core.models.triggers.types.Webhook
     key: "yourSecretKey"
 ```
+
+# CI/CD using Terraform
+
+While Terraform might be more challenging to understand at first, it provides the highest degree of flexibility. Using Kestra and Terraform together, your flows can be deployed along with other infrastructure resources in your stack, making it easier to adopt Infrastructure as Code.
+
+The [main.tf](main.tf) file provides a simple Terraform configuration that you can use to automate the deployment of flows stored in a `flows` directory.
+
+Run the following commands from your Terminal:
+
+```bash
+terraform init # downloads the terraform provider for Kestra
+terraform validate # validates the configuration incl. the syntax of your flows
+terraform apply -auto-approve # deploys your flows - can be used in a CI/CD process
+```

@@ -37,10 +37,9 @@ terraform.rc
 .idea/
 .vscode/
 .DS_Store
-.idea/
-.vscode/
 .tmp/
 .archive/
 .wip/
 .env
 credentials.json
+docker-compose.yml
