@@ -71,14 +71,12 @@ id: ci-cd
 namespace: prod
 tasks:
   - id: deploy
-    type: io.kestra.core.tasks.flows.Worker
+    type: io.kestra.core.tasks.flows.WorkingDirectory
     tasks:
       - id: cloneRepository
         type: io.kestra.plugin.git.Clone
         url: https://github.com/anna-geller/kestra-ci-cd
         branch: main
-        username: anna-geller
-        # password: "{{envs.github_access_token}}"
       - id: validateFlows
         type: io.kestra.core.tasks.scripts.Bash
         commands:
@@ -100,14 +98,12 @@ variables:
   auth: "username:password"
 tasks:
   - id: deploy
-    type: io.kestra.core.tasks.flows.Worker
+    type: io.kestra.core.tasks.flows.WorkingDirectory
     tasks:
       - id: cloneRepository
         type: io.kestra.plugin.git.Clone
         url: https://github.com/anna-geller/kestra-ci-cd
         branch: main
-        username: anna-geller 
-        # password: "{{secret('GITHUB_ACCESS_TOKEN')}}"
       - id: validateFlows
         type: io.kestra.core.tasks.scripts.Bash
         commands:
@@ -138,13 +134,11 @@ variables:
   auth: "cicd:{{secret('CICD_PASSWORD')}}" # cicd is a username - syntax is username:password
 tasks:
   - id: deploy
-    type: io.kestra.core.tasks.flows.Worker
+    type: io.kestra.core.tasks.flows.WorkingDirectory
     tasks:
       - id: cloneRepository
         type: io.kestra.plugin.git.Clone
         url: https://github.com/anna-geller/kestra-ci-cd
-        branch: main
-        username: anna-geller # password: "{{secret('GITHUB_ACCESS_TOKEN')}}"
       - id: validateFlows
         type: io.kestra.core.tasks.scripts.Bash
         commands:
