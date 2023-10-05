@@ -2,13 +2,15 @@ terraform {
   required_providers {
     kestra = {
       source  = "kestra-io/kestra"
-      version = "~> 0.7.0"
+      version = "~>0.11.1"
     }
   }
 }
 
 provider "kestra" {
-  url = "http://localhost:8080"
+  url      = var.hostname # "http://localhost:8080"
+  username = var.username
+  password = var.password
 }
 
 resource "kestra_flow" "flows" {
