@@ -1,4 +1,7 @@
 terraform {
+  backend "local" {
+    path = "terraform.tfstate"
+  }
   required_providers {
     kestra = {
       source  = "kestra-io/kestra"
