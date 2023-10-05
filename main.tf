@@ -1,6 +1,8 @@
 terraform {
-  backend "local" {
-    path = "terraform.tfstate"
+  backend "s3" {
+    bucket = "kestraio"
+    key    = "terraform.tfstate"
+    region = "eu-central-1"
   }
   required_providers {
     kestra = {
