@@ -1,6 +1,6 @@
 # CI/CD for Kestra flows
 
-This repository explains several ways of implementing a CI/CD pipeline for Kestra workflows.
+This repository explains several ways of implementing a CI/CD pipeline for various kinds of workflows.
 
 ## CI/CD with GitHub Actions
 
