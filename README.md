@@ -78,11 +78,11 @@ tasks:
         url: https://github.com/anna-geller/kestra-ci-cd
         branch: main
       - id: validateFlows
-        type: io.kestra.core.tasks.scripts.Bash
+        type: io.kestra.plugin.scripts.shell.Commands
         commands:
           - /app/kestra flow validate flows/ 
       - id: deployFlows
-        type: io.kestra.core.tasks.scripts.Bash
+        type: io.kestra.plugin.scripts.shell.Commands
         commands:
           - /app/kestra flow namespace update prod flows/prod/ --no-delete 
           - /app/kestra flow namespace update prod.marketing flows/prod.marketing/ --no-delete
@@ -105,11 +105,11 @@ tasks:
         url: https://github.com/anna-geller/kestra-ci-cd
         branch: main
       - id: validateFlows
-        type: io.kestra.core.tasks.scripts.Bash
+        type: io.kestra.plugin.scripts.shell.Commands
         commands:
           - /app/kestra flow validate flows/ --server={{vars.host}} --user={{vars.auth}}
       - id: deployFlows
-        type: io.kestra.core.tasks.scripts.Bash
+        type: io.kestra.plugin.scripts.shell.Commands
         commands:
           - /app/kestra flow namespace update prod flows/prod/ --no-delete --server={{vars.host}} --user={{vars.auth}}
           - /app/kestra flow namespace update prod.marketing flows/prod.marketing/ --no-delete --server={{vars.host}} --user={{vars.auth}}
@@ -140,11 +140,11 @@ tasks:
         type: io.kestra.plugin.git.Clone
         url: https://github.com/anna-geller/kestra-ci-cd
       - id: validateFlows
-        type: io.kestra.core.tasks.scripts.Bash
+        type: io.kestra.plugin.scripts.shell.Commands
         commands:
           - /app/kestra-ee flow validate flows/ --server={{vars.host}} --user={{vars.auth}}
       - id: deployFlows
-        type: io.kestra.core.tasks.scripts.Bash
+        type: io.kestra.plugin.scripts.shell.Commands
         commands:
           - /app/kestra-ee flow namespace update prod flows/prod/ --no-delete --server={{vars.host}} --user={{vars.auth}}
           - /app/kestra-ee flow namespace update prod.marketing flows/prod.marketing/ --no-delete --server={{vars.host}} --user={{vars.auth}}
