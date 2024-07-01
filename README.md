@@ -41,7 +41,7 @@ jobs:
       - name: deploy-prod
         uses: kestra-io/deploy-action@develop
         with:
-          namespace: prod
+          namespace: kestra
           directory: ./flows/prod
           resource: flow
           server: ${{secrets.KESTRA_HOST}}
@@ -52,7 +52,7 @@ jobs:
       - name: deploy-prod-marketing
         uses: kestra-io/deploy-action@develop
         with:
-          namespace: prod.marketing
+          namespace: kestra.marketing
           directory: ./flows/prod.marketing
           resource: flow
           server: ${{secrets.KESTRA_HOST}}
@@ -68,7 +68,7 @@ Alternatively, you can use a Kestra flow that will deploy production flows based
 
 ```yaml
 id: ci-cd
-namespace: prod
+namespace: kestra
 tasks:
   - id: deploy
     type: io.kestra.core.tasks.flows.WorkingDirectory
@@ -92,7 +92,7 @@ tasks:
 
 ```yaml
 id: ci-cd
-namespace: prod
+namespace: kestra
 variables:
   host: "http://your_host_name:8080/" 
   auth: "username:password"
@@ -128,7 +128,7 @@ For Kestra Enterprise, make sure to change `/app/kestra` to `/app/kestra-ee`.
 
 ```yaml
 id: ci-cd
-namespace: prod
+namespace: kestra
 variables:
   host: "https://demo.kestra.io/"
   auth: "cicd:{{secret('CICD_PASSWORD')}}" # cicd is a username - syntax is username:password

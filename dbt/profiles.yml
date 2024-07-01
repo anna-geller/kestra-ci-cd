@@ -1,0 +1,6 @@
+my_dbt_project:
+  outputs:
+    dev:
+      type: duckdb
+      path: ":memory:"
+  target: dev

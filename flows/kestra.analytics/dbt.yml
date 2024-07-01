@@ -1,0 +1,28 @@
+id: dbt
+namespace: kestra.analytics
+description: This flow is valid for kestra <= 0.17.20
+
+tasks:
+  - id: dbt_build
+    type: io.kestra.plugin.dbt.cli.DbtCLI
+    namespaceFiles:
+      enabled: true
+    runner: DOCKER
+    docker: 
+      image: ghcr.io/kestra-io/dbt-duckdb:latest
+    projectDir: dbt
+    commands:
+      - dbt deps --project-dir dbt
+      - dbt build --project-dir dbt
+    profiles: |
+      my_dbt_project:
+        outputs:
+          dev:
+            type: duckdb
+            path: dbt.duckdb
+            extensions: 
+              - parquet
+            fixed_retries: 1
+            threads: 16
+            timeout_seconds: 300
+        target: dev
