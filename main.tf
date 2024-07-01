@@ -28,12 +28,12 @@ resource "kestra_flow" "flows" {
 
 
 resource "kestra_namespace" "kestra" {
-  namespace_id  = "kestra"
+  namespace_id  = "myrootnamespace"
   description   = "Friendly description"
 }
 
 resource "kestra_namespace" "kestra_analytics" {
-  namespace_id  = "kestra.analytics"
+  namespace_id  = "myrootnamespace.analytics"
   description   = "Friendly description"
 }
 
